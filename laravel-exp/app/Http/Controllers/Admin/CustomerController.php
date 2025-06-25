@@ -85,4 +85,17 @@ class CustomerController extends Controller
 
         return view('customers.gelpen', ['customers' => $customers]);
     }
+
+    public function order():View
+    {
+        $customers = Customer::join('orders','customers.id','=','orders.customer_id')
+        ->join('products','orders.product_id','=','products.id')
+        ->where('orders.order_date','>','2025-6-1')
+        ->select('customers.name',DB::raw('SUM(products.price) as price'))
+        ->groupBy('customers.id','customers.name')
+        ->orderByRaw('price desc')
+        ->get();
+
+        return view('customers.order',['customers' => $customers]);
+    }
 }

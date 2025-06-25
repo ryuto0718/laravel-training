@@ -25,4 +25,5 @@ Route::get('admin/nogel', [CustomerController::class, 'noGelpen']);
 Route::get('admin/gelpen', [CustomerController::class, 'gelpen']);
 Route::get('admin/product',[ProductController::class,'product']);
 Route::get('admin/noguri',[ProductController::class,'nogurintekku']);
+Route::get('admin/order', [CustomerController::class, 'order']);
 
