@@ -8,7 +8,7 @@
     <h2>2025年6月に注文した顧客リスト</h2>
     <ul>
     @foreach ($customers as $customer)
-        <li>{{ $customer->name }} <br>合計金額：{{$customer->price}}円 </li>
+        <li>{{ $customer->name }} <br>合計金額：{{$customer->price}}円 </li><br>
     @endforeach
     </ul>
 </body>

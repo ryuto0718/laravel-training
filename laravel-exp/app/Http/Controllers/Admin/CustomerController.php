@@ -92,7 +92,7 @@ class CustomerController extends Controller
         ->join('products','orders.product_id','=','products.id')
         ->where('orders.order_date','>','2025-6-1')
         ->select('customers.name',DB::raw('SUM(products.price) as price'))
-        ->groupBy('customers.id','customers.name')
+        ->groupBy('customers.name')
         ->orderByRaw('price desc')
         ->get();
 
